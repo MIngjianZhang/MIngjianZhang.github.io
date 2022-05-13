@@ -167,7 +167,7 @@ $('.responsive').on('click', function (e) {
     if ($('.element').length) {
         $('.element').each(function () {
             $(this).typed({
-                strings: ['Welcome! Get to know me...', 'Hello World! I\'m Vian.', 'I\'m from Philly, originally from Indonesia.'],
+                strings: ['Welcome! Get to know me...', 'Hello World! I\'m Ming.', 'I\'m from Philly, originally from China.'],
                 loop: true,
                 backDelay: 2000,
                 typeSpeed: 10,
