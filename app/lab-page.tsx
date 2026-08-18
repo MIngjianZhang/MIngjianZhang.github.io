@@ -1,0 +1,15 @@
+type Item={title:string;body:string};
+type Step={title:string;body:string};
+type LabProps={mode:"mtl"|"mil";code:string;name:string;hero:string;lead:string;intro:string;intro2:string;domains:Item[];domainTitle:string;projectTitle:string;projectBody:string;steps:Step[];questions:string[]};
+
+export function LabPage(props:LabProps){const other=props.mode==="mtl"?"mil":"mtl";return <main className={`lab-page ${props.mode}`}>
+  <a className="skip-link" href="#lab-content">跳到主要内容</a>
+  <nav className="lab-topbar" aria-label="实验室导航"><a href="/">← D.R.E.A.M. Track</a><span>{props.code} · {props.name}</span><div className="lab-switch"><a aria-current={props.mode==="mtl"?"page":undefined} className={props.mode==="mtl"?"active":""} href="/mtl/">MTL</a><a aria-current={props.mode==="mil"?"page":undefined} className={props.mode==="mil"?"active":""} href="/mil/">MIL</a></div></nav>
+  <section className="lab-hero" id="lab-content"><div className="lab-hero-grid"/><div className="lab-symbol"/><div className="lab-hero-copy"><span className="lab-kicker">{props.code} · MOONSHOT {props.name.toUpperCase()}</span><h1>{props.hero.split("，")[0]}，<br/><em>{props.hero.split("，")[1]}</em></h1><p>{props.lead}</p></div></section>
+  <section className="lab-intro"><div className="section-tag"><span>01</span> LAB VISION</div><div><h2>{props.intro}<br/><span>{props.intro2}</span></h2><div className="lab-intro-text"><p>{props.mode==="mtl"?"MTL 研究数字、材料与物理世界的连接。我们从结构、动力、材料、传感器和制造出发，让概念成为真正能够运行、被触碰、被修正的实体系统。":"MIL 研究人如何进入、感知并共同改变数字世界。我们从身体、空间、身份和关系出发，让数字体验不再只停留在一块二维屏幕中。"}</p><p>{props.mode==="mtl"?"机器人、可穿戴与日常机械是今天可进入的实践入口，而不是想象的边界。我们借鉴 Tangible Bits 与愿景驱动的思维方法，但发展属于 DREAM Track 自己的教育实践。":"AR、VR、MR、手机、PICO 与 Rokid 是今天可使用的入口，而不是实验室的边界。先提出值得探索的体验，再选择真正适合它的媒介。"}</p></div></div></section>
+  <section className="lab-domains"><header><div className="section-tag light"><span>02</span> EXPLORE</div><h2>{props.domainTitle}</h2></header><div className="domain-grid">{props.domains.map((d,i)=><article className="domain-card" key={d.title}><span>0{i+1}</span><h3>{d.title}</h3><p>{d.body}</p></article>)}</div></section>
+  <section className="lab-project"><div className="section-tag"><span>03</span> FLAGSHIP QUESTION</div><div className="lab-project-copy"><h2>{props.projectTitle}</h2><p>{props.projectBody}</p></div><div className="project-steps">{props.steps.map((s,i)=><article key={s.title}><span>0{i+1}</span><div><h3>{s.title}</h3><p>{s.body}</p></div></article>)}</div></section>
+  <section className="lab-questions"><div className="section-tag light"><span>04</span> RESEARCH</div><h2>作品之外，<br/>我们继续追问。</h2><ol className="question-list">{props.questions.map((q,i)=><li key={q}><span>0{i+1}</span><p>{q}</p></li>)}</ol></section>
+  <section className="lab-cross"><div className="section-tag"><span>05</span> ONE SYSTEM</div><div><h2>{props.mode==="mtl"?"实体获得体验，\n才成为完整系统。":"体验获得实体，\n才真正进入世界。"}</h2><a href={`/${other}/`}>继续探索 {other.toUpperCase()} ↗</a></div></section>
+  <footer className="site-footer"><span>{props.code} · {props.name}</span><span>D.R.E.A.M. Track · Mingjian Zhang</span><a href="/">返回主页 ↗</a></footer>
+</main>}
