@@ -1,2 +1,9 @@
+node_modules/
+node_modules.incomplete-*/
+dist/
+.next/
+.vinext/
+.wrangler/
+.openai/
 .DS_Store
-**/.DS_Store
+*.log
