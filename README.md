@@ -21,4 +21,4 @@ npm run dev
 npm run build
 ```
 
-推送到 `main` 分支后，GitHub Actions 会自动构建并部署 GitHub Pages。
+改版合并到 `master` 分支后，GitHub Actions 会自动构建并部署 GitHub Pages。
